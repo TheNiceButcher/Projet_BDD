@@ -1,5 +1,5 @@
 Voici comment se compose notre base de données pour le site d'e-commerce, centralisé sur le sport:
--Un produit est caractérisé par son numéro de produit. Il a un nom, et un prix. Il représente un ensemble d'objets ayant les mêmes caractéristiques.
+-Un produit est caractérisé par son numéro de produit. Il a un nom, un prix et une marque. Il représente un ensemble d'objets ayant les mêmes caractéristiques.
 Ce produit peut être encore disponible (commandable dans la modélisation), ou indisponible (indispo) à la vente. Selon le produit, le client peut effectuer un retour, ou non.
 Dans notre site, les catégories de produits pouvant faire l'objet d'un retour sont les équipements sportifs (ballon, raquette de tennis, etc.) et le textile (short, maillot, ...).
 Le délai est défini à 15 jours maximum.
