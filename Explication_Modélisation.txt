@@ -25,3 +25,5 @@ Seules les objets faisant partie des secondes peuvent faire l'objet d'annulation
 Si ces 3 conditions sont respectées, un remboursement a lieu. Le décompte commence le jour de la livraison. 
 
 -Le refus est applicable à tous les produits
+
+Pour des soucis de taille, on a dû couper la modélisation en deux images.
