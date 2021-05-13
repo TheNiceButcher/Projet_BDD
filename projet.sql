@@ -151,4 +151,5 @@ set search_path to pr;
 \COPY colis FROM colis.csv with (format csv, header); 
 \COPY produit_commandé FROM produit_commande.csv with (format csv, header); 
 \COPY refus FROM refus.csv with (format csv, header); 
-
+\COPY retours FROM retour.csv with (format csv, header); 
+\COPY evolution_prix FROM prix.csv with (format csv, header); 
