@@ -135,6 +135,19 @@ create table pr.refus(
 	motif varchar(100) NOT NULL ,  
 	foreign key(id_produit,id_commande,exemplaire,id_colis) references pr.produit_commandé(id_produit,id_commande,exemplaire,id_colis), 
 	primary key(id_produit,id_commande,exemplaire,id_colis));
+
+
+create table pr.avis( 
+	id_client integer references pr.clients NOT NULL,
+	id_commande integer NOT NULL, 
+	id_produit integer NOT NULL,
+	id_colis integer NOT NULL ,
+	exemplaire integer NOT NULL,  
+	date_avis date NOT NULL, 
+	avis varchar(100) NOT NULL,  
+	foreign key(id_produit,id_commande,exemplaire,id_colis) references pr.produit_commandé(id_produit,id_commande,exemplaire,id_colis),
+        primary key(id_client,id_produit,id_commande,exemplaire,id_colis));
+
 set search_path to pr;
 \COPY paniers FROM paniers.csv with (format csv, header);
 \COPY clients FROM mycsv.csv  with (format csv, header); 
@@ -152,4 +165,6 @@ set search_path to pr;
 \COPY produit_commandé FROM produit_commande.csv with (format csv, header); 
 \COPY refus FROM refus.csv with (format csv, header); 
 \COPY retours FROM retour.csv with (format csv, header); 
-\COPY evolution_prix FROM prix.csv with (format csv, header); 
+\COPY evolution_prix FROM prix.csv with (format csv, header);
+\COPY avis FROM avis.csv with (format csv, header); 
+
