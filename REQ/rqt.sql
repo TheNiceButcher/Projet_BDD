@@ -39,3 +39,10 @@ select max(date) from evolution_prix as ev1
 where ev1.id_produit=pc.id_produit and ev1.date<= co.date) and
 (pc.id_commande, pc.id_produit,pc.id_colis,pc.exemplaire) NOT IN
 ( (select r.id_commande,r.id_produit,r.id_colis,r.exemplaire from retours as r) UNION (select r.id_commande,r.id_produit,r.id_colis,r.exemplaire from refus as r) );
+
+\! echo "les 10 produits qui ont le plus de 5 étoiles  "
+select nom, count(etoile) from produits as p join avis as a on (a.id_produit=p.id_produit) where etoile=5 group by p.id_produit order by count desc limit 10;
+
+\! echo "les 10 produits les mieux noté "
+select nom, avg(etoile) from produits as p join avis as a on (a.id_produit=p.id_produit) group by p.id_produit order by avg desc limit 10;
+
