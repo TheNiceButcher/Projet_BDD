@@ -46,3 +46,10 @@ select nom, count(etoile) from produits as p join avis as a on (a.id_produit=p.i
 \! echo "les 10 produits les mieux noté "
 select nom, avg(etoile) from produits as p join avis as a on (a.id_produit=p.id_produit) group by p.id_produit order by avg desc limit 10;
 
+\! echo "les 10 produits les plus commandé par nos clients adolescent "
+WITH client_ado AS (select * from clients where datenaiss > (now()- interval '18 year')::date)
+SELECT p.nom, count(p.nom) from client_ado as c , produit_commandé as pc,produits as p, commandes as co 
+where co.id_client=c.id_client and co.id_commande=pc.id_commande and p.id_produit=pc.id_produit
+group by p.id_produit
+order by count desc 
+limit 10;
