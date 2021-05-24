@@ -145,7 +145,7 @@ create table pr.avis(
 	exemplaire integer NOT NULL,  
 	date_avis date NOT NULL, 
 	avis varchar(100) NOT NULL,  
-	etoile integer NOT NULL,
+	etoile integer,
 	foreign key(id_produit,id_commande,exemplaire,id_colis) references pr.produit_commandé(id_produit,id_commande,exemplaire,id_colis),
         primary key(id_client,id_produit,id_commande,exemplaire,id_colis));
 

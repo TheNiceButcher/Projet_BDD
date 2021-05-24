@@ -19,3 +19,66 @@ select c.nom,c.id_client, p.nom,r.motif from clients as c , commandes as co ,pro
 \! echo "pour chaque client qui a donné des avis le nombre d'etoile classé par étoile"
 select c.id_client,c.nom ,c.prenom ,etoile, count(etoile) from clients as c , avis as a where a.id_client=c.id_client  group by c.id_client,etoile;
 
+\! echo "les 10 clients qui on dépensé le plus d'argent sur notre magasin son compter les annulations"
+select c.nom, sum(prix) from clients as c ,commandes as co, produit_commandé as pc ,evolution_prix as ev 
+where c.id_client=co.id_client and co.id_commande=pc.id_commande and pc.annulation='f' and pc.id_produit=ev.id_produit and co.date=(
+select max(date) from evolution_prix as ev1 where ev1.id_produit=pc.id_produit and ev1.date<= co.date) 
+group by c.id_client order by sum desc limit 10;
+
+\! echo "les 10 clients qui on dépensé le plus d'argent sur notre magasin son compter les refus ou les retour et les annulations"
+select c.nom, sum(prix) from clients as c ,commandes as co, produit_commandé as pc ,evolution_prix as ev 
+where c.id_client=co.id_client and co.id_commande=pc.id_commande and pc.annulation='f' and pc.id_produit=ev.id_produit and co.date=(
+select max(date) from evolution_prix as ev1 where ev1.id_produit=pc.id_produit and ev1.date<= co.date) and (pc.id_commande, pc.id_produit,pc.id_colis,pc.exemplaire)
+NOT IN ( (select r.id_commande,r.id_produit,r.id_colis,r.exemplaire from retours as r) UNION (select r.id_commande,r.id_produit,r.id_colis,r.exemplaire from refus as r) )    
+group by c.id_client order by sum desc limit 10;
+
+\! echo "le chifre d'affaire de notre magasin sans compter les retour et les refus"
+select sum(prix) from clients as c ,commandes as co, produit_commandé as pc ,evolution_prix as ev
+where c.id_client=co.id_client and co.id_commande=pc.id_commande and pc.annulation='f' and pc.id_produit=ev.id_produit and co.date=(
+select max(date) from evolution_prix as ev1 
+where ev1.id_produit=pc.id_produit and ev1.date<= co.date) and
+(pc.id_commande, pc.id_produit,pc.id_colis,pc.exemplaire) NOT IN
+( (select r.id_commande,r.id_produit,r.id_colis,r.exemplaire from retours as r) UNION (select r.id_commande,r.id_produit,r.id_colis,r.exemplaire from refus as r) );
+
+\! echo "les 10 produits qui ont le plus de 5 étoiles  "
+select nom, count(etoile) from produits as p join avis as a on (a.id_produit=p.id_produit) where etoile=5 group by p.id_produit order by count desc limit 10;
+
+\! echo "les 10 produits les mieux noté "
+select nom, avg(etoile) from produits as p join avis as a on (a.id_produit=p.id_produit) group by p.id_produit order by avg desc limit 10;
+
+\! echo "les 10 produits les plus commandé par nos clients adolescent "
+WITH client_ado AS (select * from clients where datenaiss > (now()- interval '18 year')::date)
+SELECT p.nom, count(p.nom) from client_ado as c , produit_commandé as pc,produits as p, commandes as co 
+where co.id_client=c.id_client and co.id_commande=pc.id_commande and p.id_produit=pc.id_produit
+group by p.id_produit
+order by count desc 
+limit 10;
+
+\! echo "les differents produits que le client 1 à commandé"
+WITH recursive produit_de_x(id_client,id_produit) AS (
+VALUES(1,0)
+UNION 
+select c.id_client,p.id_produit 
+from produit_commandé as p , produit_de_x as c, commandes as co
+where c.id_client=co.id_client and co.id_commande=p.id_commande)
+select * from produit_de_x where id_produit<>0;
+
+\! echo "le produit qui a été commandé sur tous les commandes avec de l’agrégation"
+SELECT p.id_produit from produit_commandé as p group by id_produit having count(distinct id_commande)=(select count(distinct id_commande) from commandes );
+
+\! echo "le produit qui a été commandé sur tous les commandes avec des sous requetes corrélées --attention cette requette peut prendre des minutes pour calculer le resultat vu la taille des deux tables dans le NUTURAL JOIN--"
+SELECT p.id_produit from produit_commandé as p where NOT EXISTS(
+SELECT c.id_commande from commandes as c where c.id_commande NOT IN
+(select c2.id_commande from commandes as c2 NATURAL JOIN produit_commandé as p2 
+where p2.id_produit=p.id_produit));
+
+\! echo "les 10 produits qui on été evaluer le plus --deux requetes qui donnent la meme chose si la table ne contient pas des null et le contarire si la table contient des null"
+
+\! echo "avec count(*)"
+select id_produit ,count(*) from avis group by id_produit order by count desc limit 10;
+
+\! echo "avec count(etoile) et etoile est un attribut nullable"
+select id_produit ,count(etoile) from avis group by id_produit order by count desc limit 10;
+
+
+
