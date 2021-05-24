@@ -72,8 +72,13 @@ SELECT c.id_commande from commandes as c where c.id_commande NOT IN
 (select c2.id_commande from commandes as c2 NATURAL JOIN produit_commandé as p2 
 where p2.id_produit=p.id_produit));
 
+\! echo "les 10 produits qui on été evaluer le plus --deux requetes qui donnent la meme chose si la table ne contient pas des null et le contarire si la table contient des null"
 
+\! echo "avec count(*)"
+select id_produit ,count(*) from avis group by id_produit order by count desc limit 10;
 
+\! echo "avec count(etoile) et etoile est un attribut nullable"
+select id_produit ,count(etoile) from avis group by id_produit order by count desc limit 10;
 
 
 
