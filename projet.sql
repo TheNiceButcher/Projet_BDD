@@ -80,6 +80,7 @@ create table pr.equipements (
 create table pr.paniers_produits ( 
 	id_panier integer references pr.paniers, 
 	id_produit integer references pr.commandable, 
+	quantité integer NOT NULL,
 	primary key(id_panier,id_produit) );
 
 
@@ -168,4 +169,5 @@ set search_path to pr;
 \COPY retours FROM retour.csv with (format csv, header); 
 \COPY evolution_prix FROM prix.csv with (format csv, header);
 \COPY avis FROM avis.csv with (format csv, header); 
+\COPY paniers_produits FROM panier_produit.csv with (format csv, header); 
 
