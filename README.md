@@ -37,15 +37,15 @@ Chaque table a les contraintes ON DELETE CASCADE ON UPDATE CASCADE nécessaires 
 
  **les requêtes:**
  Les requêtes se trouvent dans le fichier **rqt.sql**. Elles sont au nombre de 20, avec :
-*   une requête récursive
-*   une requête avec le WITH
-*   une requête avec une jointure externe "LEFT JOIN"
-*   une ou plusieurs requêtes qui porte sur au moins trois ou plusieurs tables
-*   une requête avec ’auto jointure’
-*   une sous-requête corrélée
-*   une ou plusieurs sous-requête dans le FROM
-*   une ou plusieurs sous-requête dans le WHERE
-*   deux agrégats nécessitant GROUP BY et HAVING
-*   une requête impliquant le calcul de deux agrégats
-*   deux requêtes équivalentes exprimant une condition de totalité, l’une avec des sous requêtes corrélées et l’autre avec de l’agrégation
-*   deux requêtes qui renverraient le même résultat si les tables de contenaient pas de NULLs, mais qui renvoient des résultats différents ici
+*   une requête récursive (14)
+*   une requête avec le WITH (13)
+*   une requête avec une jointure externe "LEFT JOIN"(19)
+*   une ou plusieurs requêtes qui porte sur au moins trois ou plusieurs tables (5,6,8,9,10)
+*   une requête avec ’auto jointure’(20)
+*   requete exprimant une condition de totalité avec sous-requête corrélée (16)
+*   requete exprimant une condition de totalité avec de l’agrégation (15)
+*   une ou plusieurs sous-requête dans le FROM (2)
+*   une ou plusieurs sous-requête dans le WHERE (1,2,8,9,10)
+*   deux agrégats nécessitant GROUP BY et HAVING (12)
+*   une requête impliquant le calcul de deux agrégats (12)
+*   deux requêtes qui renverraient le même résultat si les tables de contenaient pas de NULLs, mais qui renvoient des résultats différents ici(17,18)
