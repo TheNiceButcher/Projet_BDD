@@ -120,7 +120,7 @@ create table pr.commandes(
 	date date NOT NULL , 
 	id_client integer references pr.clients NOT NULL);
 
-ALTER TABLE pr.commande
+ALTER TABLE pr.commandes
 ADD CONSTRAINT ONdeleteONcascade
    FOREIGN KEY (id_client)
    REFERENCES pr.clients(id_client)
