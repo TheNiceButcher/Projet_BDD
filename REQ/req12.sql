@@ -1,3 +1,4 @@
+set search_path to pr;
 \! echo "12- les 10 produits les mieux notés "
 
 select nom, avg(etoile),count(etoile)
