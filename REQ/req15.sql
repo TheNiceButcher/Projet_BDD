@@ -1,3 +1,4 @@
+set search_path to pr;
 \! echo "15- le produit qui a été commandé sur toutes les commandes (avec de l agrégation)"
 
 SELECT p.id_produit
