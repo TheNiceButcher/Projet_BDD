@@ -209,23 +209,4 @@ create table pr.avis(
 	foreign key(id_produit,id_commande,exemplaire,id_colis) references pr.produit_commandé(id_produit,id_commande,exemplaire,id_colis) ON DELETE CASCADE ON UPDATE CASCADE ,
         primary key(id_client,id_produit,id_commande,exemplaire,id_colis));
 
-set search_path to pr;
-\COPY paniers FROM paniers.csv with (format csv, header);
-\COPY clients FROM mycsv.csv  with (format csv, header); 
-\COPY produits FROM produit.csv with (format csv, header); 
-\COPY evolution_prix FROM prix.csv with (format csv, header); 
-\COPY commandable FROM commandable.csv with (format csv, header); 
-\COPY categories FROM categories.csv with (format csv, header); 
-\COPY produit_categories FROM prodcat.csv with (format csv, header); 
-\COPY textiles FROM textile.csv with (format csv, header); 
-\COPY alimentations FROM alim.csv with (format csv, header); 
-\COPY equipements FROM equipement.csv with (format csv, header); 
-\COPY commandes FROM commandes.csv with (format csv, header); 
-\COPY livraison FROM livraison.csv with (format csv, header); 
-\COPY colis FROM colis.csv with (format csv, header); 
-\COPY produit_commandé FROM produit_commande.csv with (format csv, header); 
-\COPY refus FROM refus.csv with (format csv, header); 
-\COPY retours FROM retour.csv with (format csv, header); 
-\COPY evolution_prix FROM prix.csv with (format csv, header);
-\COPY avis FROM avis.csv with (format csv, header); 
-\COPY paniers_produits FROM panier_produit.csv with (format csv, header); 
+
