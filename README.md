@@ -35,8 +35,8 @@ Chaque table a les contraintes ON DELETE CASCADE ON UPDATE CASCADE nécessaires 
 **création de la base de données et peuplement:**
  Dans le fichier **projet.sql**, on trouve le code sql pour la création de la base de données. Le peuplement des tables est géré par **COPY.sql**.
  Les fichiers csv sont dans le dossier **CSV**. Ils ont été crées par nos soins, à base de scripts Python.
- Pour créer et alimenter la base de données, il faut taper les commandes suivantes à la suite :
- 	* psql -f projet.sql
+ * Pour créer et alimenter la base de données, il faut taper les commandes suivantes à la suite :
+	* psql -f projet.sql
 	* psql -f COPY.sql
 
  **les requêtes:**
