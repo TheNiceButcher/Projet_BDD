@@ -1,3 +1,4 @@
+set search_path to pr;
 \! echo "1- le nom des produits et leur prix actuel"
 SELECT nom, date, prix
 FROM evolution_prix AS ev ,produits as pr
