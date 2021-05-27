@@ -1,14 +1,14 @@
 # Projet_BDD
-##Binôme
+## Binôme
 * Notre groupe est constitué de :
  	* HAMDANI Harris, numéro d'étudiant 22014430
-	* DJELLOUL ABBOU Mohammed Adel, numéro d'étudiant 22018734 
+	* DJELLOUL ABBOU Mohammed Adel, numéro d'étudiant 22018734
 
 **attention l’exécution du fichier de la création de la base de donnée va supprimé
-un schema "pr" s'il en existe un puis le recrée en ajoutant nos tables**
+un schéma "pr" s'il en existe un puis le recrée en ajoutant nos tables**
 
-
-notre base de donnée contient 18 tables
+## Composition de la base de données
+Notre base de donnée contient 18 tables
 *  alimentations
 *  avis
 *  categories
@@ -28,23 +28,23 @@ notre base de donnée contient 18 tables
 *  retours
 *  textiles
 
-chaque table a des contrainte ON DELETE CASCADE ON UPDATE CASCADE nécessaire ainsi que des champs NOT NULL, UNIQUE ou des contrainte de type CHECK
+Chaque table a les contraintes ON DELETE CASCADE ON UPDATE CASCADE nécessaires ainsi que des champs NOT NULL, UNIQUE ou des contrainte de type CHECK.
 
 
 **création de la base de donnée et peuplement:**
- sur le fichier  **projet.sql** on trouve le code sql pour la creation de la base de donée et le peuplement des tables aussi, les fichier csv sont dans le dossier **CsvFiles**
+ Dans le fichier  **projet.sql** on trouve le code sql pour la création de la base de donnée et le peuplement des tables aussi, les fichier csv sont dans le dossier **CsvFiles**
 
- **les requetes:**
- les requetes on les trouvent sur le fichier **REQ/rqt.sql**, il y a en tout 20 requetes, il y a:
-*   une requete récursive
-*   une requete avec le WITH
-*   une requete avec une jointure externe "LEFT JOIN"
-*   une ou plusieur requetes qui porte sur au moins trois ou plusieur tables
-*   une requete avec ’auto jointure’
-*   une sous-requete corrélée
-*   une ou plusieur sous-requete dans le FROM
-*   une ou plusieurs sous-requete dans le WHERE
-*   deux agregats necessitant GROUP BY et HAVING
-*   une requéte impliquant le calcul de deux agrégats
-*   deux requetes équivalentes exprimant une condition de totalité, l’une avec des sous requetes corrélées et l’autre avec de l’agrégation
-*   deux requˆetes qui renverraient le meme résultat si les tables de contenaient pas de nulls, mais qui renvoient des résultats différents ici
+ **les requêtes:**
+ Les requêtes se trouvent dans le fichier **REQ/rqt.sql**. Elles sont au nombre de 20, avec :
+*   une requête récursive
+*   une requête avec le WITH
+*   une requête avec une jointure externe "LEFT JOIN"
+*   une ou plusieurs requêtes qui porte sur au moins trois ou plusieurs tables
+*   une requête avec ’auto jointure’
+*   une sous-requête corrélée
+*   une ou plusieurs sous-requête dans le FROM
+*   une ou plusieurs sous-requête dans le WHERE
+*   deux agrégats nécessitant GROUP BY et HAVING
+*   une requête impliquant le calcul de deux agrégats
+*   deux requêtes équivalentes exprimant une condition de totalité, l’une avec des sous requêtes corrélées et l’autre avec de l’agrégation
+*   deux requêtes qui renverraient le même résultat si les tables de contenaient pas de NULLs, mais qui renvoient des résultats différents ici
