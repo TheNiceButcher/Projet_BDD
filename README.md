@@ -4,11 +4,11 @@
  	* HAMDANI Harris, numéro d'étudiant 22014430
 	* DJELLOUL ABBOU Mohammed Adel, numéro d'étudiant 22018734
 
-**attention l’exécution du fichier de la création de la base de donnée va supprimé
+**attention l’exécution du fichier de la création de la base de donnée va supprimer
 un schéma "pr" s'il en existe un puis le recrée en ajoutant nos tables**
 
 ## Composition de la base de données
-Notre base de donnée contient 18 tables
+Notre base de données contient 18 tables
 *  alimentations
 *  avis
 *  categories
@@ -30,12 +30,13 @@ Notre base de donnée contient 18 tables
 
 Chaque table a les contraintes ON DELETE CASCADE ON UPDATE CASCADE nécessaires ainsi que des champs NOT NULL, UNIQUE ou des contrainte de type CHECK.
 
+## Architecture du projet
 
-**création de la base de donnée et peuplement:**
- Dans le fichier  **projet.sql** on trouve le code sql pour la création de la base de donnée et le peuplement des tables aussi, les fichier csv sont dans le dossier **CsvFiles**
+**création de la base de données et peuplement:**
+ Dans le fichier  **projet.sql**, on trouve le code sql pour la création de la base de données et le peuplement des tables. Les fichiers csv sont dans le dossier **CsvFiles**
 
  **les requêtes:**
- Les requêtes se trouvent dans le fichier **REQ/rqt.sql**. Elles sont au nombre de 20, avec :
+ Les requêtes se trouvent dans le fichier **rqt.sql**. Elles sont au nombre de 20, avec :
 *   une requête récursive
 *   une requête avec le WITH
 *   une requête avec une jointure externe "LEFT JOIN"
