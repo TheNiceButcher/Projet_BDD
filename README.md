@@ -54,6 +54,7 @@ Chaque table a les contraintes ON DELETE CASCADE ON UPDATE CASCADE nécessaires 
 *   deux agrégats nécessitant GROUP BY et HAVING (12)
 *   une requête impliquant le calcul de deux agrégats (12)
 *   deux requêtes qui renverraient le même résultat si les tables de contenaient pas de NULLs, mais qui renvoient des résultats différents ici(17,18)
+
 **Les modélisations**
 Le fichier **Modélisation.pdf** correspond à la première modélisation que l'on a proposée. Elle est accompagnée du fichier **Explication_Modélisation.txt**,
 qui explique quelques détails sur cette dernière.
