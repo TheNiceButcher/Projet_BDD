@@ -1,3 +1,4 @@
+set search_path to pr;
 \! echo "13- les 10 produits les plus commandés par nos clients adolescent "
 
 WITH client_ado AS (select * from clients where datenaiss > (now()- interval '18 year')::date)
