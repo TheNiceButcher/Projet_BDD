@@ -1,4 +1,4 @@
-\! echo "5-le nom,le poids, la matiere et la couleur des composants du produit numero 1101"
+\! echo "5- le nom,le poids, la matiere et la couleur des composants du produit numero 1101"
 select nom  ,poids ,matiere,couleur
 from produits as p , equipements as e ,produit_categories as pc
 where p.id_produit=pc.id_produit
