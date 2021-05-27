@@ -1,4 +1,4 @@
-\! echo "14- les differents produits que le client 1 a commandé"
+\! echo "14- les differents produits que le client 1 a commandés"
 
 WITH recursive produit_de_x(id_client,id_produit) AS (
 	VALUES(1,0)
