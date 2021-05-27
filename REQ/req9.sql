@@ -1,3 +1,4 @@
+set search_path to pr;
 \! echo "9- les 10 clients qui ont dépensé le plus d argent sur notre site sans compter les refus ou les retours et les annulations"
 
 select c.nom, sum(prix)
