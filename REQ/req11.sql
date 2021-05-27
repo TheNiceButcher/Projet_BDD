@@ -1,3 +1,4 @@
+set search_path to pr;
 \! echo "11- les 10 produits qui ont le plus de 5 étoiles  "
 
 select nom, count(etoile)
