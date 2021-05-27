@@ -1,3 +1,4 @@
+set search_path to pr;
 \! echo "6- 10 retours avec  id et le nom du client qui a fait le retour avec le nom du produit et le motif du retour"
 select c.nom,c.id_client, p.nom,r.motif
 from clients as c , commandes as co ,produits as p, retours as r
