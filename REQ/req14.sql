@@ -1,3 +1,4 @@
+set search_path to pr;
 \! echo "14- les differents produits que le client 1 a commandés"
 
 WITH recursive produit_de_x(id_client,id_produit) AS (

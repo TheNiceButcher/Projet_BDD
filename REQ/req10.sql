@@ -1,3 +1,4 @@
+set search_path to pr;
 \! echo "10- le chiffre d affaires de notre magasin sans compter les retours et les refus"
 
 select sum(prix)
