@@ -80,7 +80,7 @@ select id_produit ,count(*) from avis group by id_produit order by count desc li
 \! echo "avec count(etoile) et etoile est un attribut nullable"
 select id_produit ,count(etoile) from avis group by id_produit order by count desc limit 10;
 
-\! echo "les produits et leurs avis avec id du client qui a donnée l'avis bien sur NULL pour les produis qui ont jamais eu d'avis"
+\! echo "les produits et leurs avis avec id du client qui a donnée l'avis et NULL pour les produis qui ont jamais eu d'avis"
 SELECT avis.id_client, produits.id_produit, avis FROM produits LEFT JOIN avis ON avis.id_produit=produits.id_produit ;
 
 
